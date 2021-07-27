@@ -1,2 +1,2 @@
-##Simple Sample
+##Simple Sample 
 DataBinding + Room
