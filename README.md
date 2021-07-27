@@ -1,3 +1,5 @@
-### Simple Sample
+### Practicing Libraries
 
-DataBinding + Room
+- DataBinding
+- Room
+- LiveData
