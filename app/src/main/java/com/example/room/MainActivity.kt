@@ -2,6 +2,7 @@ package com.example.room
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import androidx.room.Room
 import com.example.room.databinding.ActivityMainBinding
 
@@ -20,11 +21,12 @@ class MainActivity : AppCompatActivity() {
             .allowMainThreadQueries()
             .build()
 
-        binding.resText.text = db.todoDao().getAll().toString()
+        db.todoDao().getAll().observe(this, Observer {
+            binding.resText.text = it.toString()
+        })
 
         binding.addButton.setOnClickListener {
             db.todoDao().insert(Todo(binding.todoEdit.text.toString()))
-            binding.resText.text = db.todoDao().getAll().toString()
             binding.todoEdit.text = null
         }
     }
